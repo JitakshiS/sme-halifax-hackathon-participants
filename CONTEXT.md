@@ -1,10 +1,10 @@
-# Project Context — Atlantic AI Hackathon Participant Waitlist Page
+# Project Context — Atlantic AI Business Hackathon Participant Waitlist Page
 
 > This file provides full context for any new session working on this project.
 > Always read this file at the start of a new or compacted session.
 
 ## Project Overview
-- **What:** Participant waitlist landing page for "The Atlantic AI Hackathon" in Halifax, NS (2026)
+- **What:** Participant waitlist landing page for "The Atlantic AI Business Hackathon" in Halifax, NS (2026)
 - **Who:** Organized by Jitakshi (Event Lead & Tech Partnerships) and Bethany Wilkie (Business Strategy)
 - **Purpose:** Excite non-technical SMB owners about the event and capture their email for the waitlist. Tone is energetic, inclusive, empowering — "the invite to the party everyone will be talking about."
 - **Target audience:** Small and medium business owners, operations managers, marketing leads, team members — NON-TECHNICAL people who may feel intimidated by tech
