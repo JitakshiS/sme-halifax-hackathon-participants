@@ -8,7 +8,7 @@
 - **Who:** Organized by Jitakshi (Event Lead & Tech Partnerships) and Bethany Wilkie (Business Strategy)
 - **Purpose:** Excite non-technical SMB owners about the event and capture their email for the waitlist. Tone is energetic, inclusive, empowering — "the invite to the party everyone will be talking about."
 - **Target audience:** Small and medium business owners, operations managers, marketing leads, team members — NON-TECHNICAL people who may feel intimidated by tech
-- **Previous event:** Lovable Halifax Women's AI Hackathon, Dec 2025 — 70 participants, 5 sponsors, 7 winners, 3 judges, 100% sold out, participants built working prototypes in 2 hours with zero coding experience
+- **Previous event:** Lovable Halifax Women's AI Hackathon, Dec 2025 — 70 registered, 37 came and built working prototypes in 2 hours with zero coding experience, 5 sponsors, 7 winners, 3 judges, 100% sold out
 - **New event targets:** 100-150 participants, 10-15 sponsors, full day (9am-6pm), premier Halifax venue, documentary coverage
 
 ## Related Project — Sponsor Page (SEPARATE REPO)
@@ -38,17 +38,14 @@
 - Key UX principle: answer "what is this?", "is it for me?", and "what do I get?" within 10 seconds
 
 ## Current Page Structure (index.html)
-1. **Hero** (dark) — "Build a Real Tool for Your Business in One Day" + Save My Spot CTA + cursor-following spotlight
-2. **01 — The Pitch** (light) — Hook copy about duct tape & spreadsheets + 4 pill badges (No Coding Required, Full Day, Free AI Credits, Real Outcomes)
-3. **02 — How It Works** (dark) — 4-step timeline cards (Choose Track → Learn Tools → Build 6hrs → Demo & Win)
-4. **03 — Build Tracks** (light) — 5 track cards (Automate, Customer Experience, Dashboards, Sell Smarter, Wildcard)
-5. **04 — Who This Is For** (dark) — 4 persona cards (restaurant owner, contractor, retailer, agency owner)
-6. **05 — What You Get** (light) — 6 benefit cards with icons (prototype, credits, mentors, networking, content, prizes)
-7. **06 — From Our Last Event** (dark) — Stats (70 participants, 7 winners, 2hr prototypes, 100% sold out), 4 photos, callout quote, polaroid wall link
-8. **07 — Event Details** (light) — 5-card grid (When, Where, Duration, Team Size, Cost)
-9. **08 — Waitlist Form** (dark) — Name, email, business name, role dropdown, challenge textarea → Formspree
-10. **09 — FAQ** (dark) — 6 collapsible accordion items
-11. **Footer** — Links + "Interested in sponsoring?" link to sponsor page
+1. **Hero** (dark) — "Your Business Has a Problem. Build the Fix in One Day." + Save My Spot CTA + cursor-following spotlight
+2. **01 — Is This For You?** (light) — Hook copy + 4 pill badges + 4 persona cards (merged pitch + who it's for) + Join Waitlist CTA
+3. **02 — How It Works** (dark) — 4-step timeline cards (Choose Track → Learn Tools → Build 6hrs → Demo & Win) + Save My Spot CTA
+4. **03 — What You'll Build** (light) — 5 track cards + "What you walk away with" (5 benefit cards) + Join Waitlist CTA
+5. **04 — From Our Last Event** (dark) — Stats (70 registered, 37 built prototypes, 7 winners, 2hr to tools), 4 photos, callout quote, polaroid wall link + I Want In CTA
+6. **05 — Join the Waitlist + Event Details** (dark) — 5-card event details grid + form (name, email, business name, role, challenge) → Formspree
+7. **06 — FAQ** (dark) — 6 collapsible accordion items
+8. **Footer** — Links + "Interested in sponsoring?" link to sponsor page
 
 ## Key Files
 - `index.html` — main page (~1400 lines, fully self-contained HTML/CSS/JS)
@@ -79,7 +76,8 @@
 - Responsive breakpoints: 900px (2-col), 768px (nav hides), 600px (single-col), 500px/480px (mobile)
 
 ## Session Log
-- **Session 1 (current):** Built complete waitlist page from blueprint. User confirmed: same base design, coral accent (#F97316), Formspree for form, full page with all sections. Created separate repo, pushed, enabled GitHub Pages. Created this context file.
+- **Session 1:** Built complete waitlist page from blueprint. User confirmed: same base design, coral accent (#F97316), Formspree for form, full page with all sections. Created separate repo, pushed, enabled GitHub Pages. Created this context file.
+- **Session 2:** Consolidated page from 9 sections to 6. Merged "The Pitch" + "Who This Is For" into one section. Merged "Build Tracks" + "What You Get" into one section. Folded "Event Details" into the Waitlist Form section. Added "Join the Waitlist" CTA buttons after every major section. Rewrote hero heading to "Your Business Has a Problem. Build the Fix in One Day." Fixed past event stats: 70 registered, 37 built prototypes (was incorrectly showing 70 participants).
 
 ## Pending Items
 - Replace Formspree PLACEHOLDER with real form ID
