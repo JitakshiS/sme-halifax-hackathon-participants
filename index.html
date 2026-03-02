@@ -729,6 +729,72 @@
             font-weight: 300;
         }
 
+        /* ---- Tier Selector ---- */
+        .tier-selector {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.75rem;
+        }
+        .tier-card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.03);
+            border: 2px solid var(--glass-border);
+            border-radius: 14px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            text-align: center;
+        }
+        .tier-card:hover {
+            border-color: rgba(249, 115, 22, 0.4);
+            background: rgba(249, 115, 22, 0.04);
+        }
+        .tier-card.selected {
+            border-color: var(--accent);
+            background: rgba(249, 115, 22, 0.08);
+            box-shadow: 0 0 24px rgba(249, 115, 22, 0.1);
+        }
+        .tier-card input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+        .tier-card .tier-name {
+            font-size: 0.8125rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--gray-400);
+            margin-bottom: 0.5rem;
+        }
+        .tier-card.selected .tier-name {
+            color: var(--accent);
+        }
+        .tier-card .tier-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1;
+            margin-bottom: 0.35rem;
+        }
+        .tier-card .tier-detail {
+            font-size: 0.8125rem;
+            color: var(--gray-500);
+            font-weight: 300;
+        }
+        .tier-card .tier-per-person {
+            font-size: 0.75rem;
+            color: var(--gray-500);
+            margin-top: 0.5rem;
+            font-family: var(--mono);
+        }
+        @media (max-width: 480px) {
+            .tier-selector {
+                grid-template-columns: 1fr;
+            }
+        }
+
         /* ---- FAQ ---- */
         .faq-list {
             max-width: 720px;
@@ -1141,11 +1207,11 @@
                 </div>
                 <div class="detail-card" style="background: var(--glass); border: none;">
                     <p class="detail-card-label" style="color: var(--gray-500);">Team Size</p>
-                    <p class="detail-card-value" style="color: var(--white);">Solo or 2&ndash;4</p>
+                    <p class="detail-card-value" style="color: var(--white);">2&ndash;5 people</p>
                 </div>
                 <div class="detail-card" style="background: var(--glass); border: none;">
                     <p class="detail-card-label" style="color: var(--gray-500);">Cost</p>
-                    <p class="detail-card-value" style="color: var(--white);">Early Bird</p>
+                    <p class="detail-card-value" style="color: var(--white);">$149 &ndash; $249</p>
                 </div>
             </div>
 
@@ -1176,23 +1242,31 @@
                             </select>
                         </div>
                         <div class="form-row">
-                            <label for="team-size">How many people are attending from your team?</label>
-                            <select id="team-size" name="team_size" required>
-                                <option value="" disabled selected>Select team size</option>
-                                <option value="1">Just me</option>
-                                <option value="2">2 people</option>
-                                <option value="3">3 people</option>
-                                <option value="4">4 people</option>
-                                <option value="5">5 people</option>
-                            </select>
+                            <label>Select your team size</label>
+                            <div class="tier-selector">
+                                <label class="tier-card" data-tier="small">
+                                    <input type="radio" name="team_tier" value="small_team" required>
+                                    <div class="tier-name">Small Team</div>
+                                    <div class="tier-price">$149</div>
+                                    <div class="tier-detail">2&ndash;3 people</div>
+                                    <div class="tier-per-person">~$50&ndash;75/person</div>
+                                </label>
+                                <label class="tier-card" data-tier="full">
+                                    <input type="radio" name="team_tier" value="full_team">
+                                    <div class="tier-name">Full Team</div>
+                                    <div class="tier-price">$249</div>
+                                    <div class="tier-detail">4&ndash;5 people</div>
+                                    <div class="tier-per-person">~$50&ndash;62/person</div>
+                                </label>
+                            </div>
                         </div>
                         <div class="form-row">
                             <label for="challenge">What's the biggest challenge in your business you'd want to solve?</label>
                             <textarea id="challenge" name="challenge" placeholder="Tell us about a problem you wish technology could fix..."></textarea>
                         </div>
-                        <button type="submit" class="form-submit">Register Now</button>
+                        <button type="submit" class="form-submit" id="submit-btn">Select a team size to continue</button>
                     </form>
-                    <p class="form-note">Spots are limited. We'll email you the moment registration opens.</p>
+                    <p class="form-note">You'll be redirected to secure payment after submitting.</p>
                 </div>
                 <div class="form-success" id="form-success">
                     <h3>You're registered!</h3>
@@ -1355,11 +1429,42 @@
             });
         });
 
+        // Stripe Payment Links — replace these with your real Stripe links
+        const STRIPE_LINKS = {
+            small_team: 'STRIPE_LINK_SMALL_TEAM',  // $149 — 2-3 people
+            full_team: 'STRIPE_LINK_FULL_TEAM'     // $249 — 4-5 people
+        };
+        const TIER_PRICES = { small_team: '$149', full_team: '$249' };
+
+        // Tier card selection
+        const tierCards = document.querySelectorAll('.tier-card');
+        const submitBtn = document.getElementById('submit-btn');
+        let selectedTier = null;
+
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = '0.5';
+        submitBtn.style.cursor = 'not-allowed';
+
+        tierCards.forEach(card => {
+            card.addEventListener('click', () => {
+                tierCards.forEach(c => c.classList.remove('selected'));
+                card.classList.add('selected');
+                card.querySelector('input[type="radio"]').checked = true;
+                selectedTier = card.querySelector('input[type="radio"]').value;
+                submitBtn.textContent = 'Register & Pay ' + TIER_PRICES[selectedTier];
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = '1';
+                submitBtn.style.cursor = 'pointer';
+            });
+        });
+
         // Registration form
         const form = document.getElementById('register-form');
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const btn = form.querySelector('.form-submit');
+            if (!selectedTier) return;
+
+            const btn = submitBtn;
             btn.textContent = 'Saving...';
             btn.disabled = true;
 
@@ -1371,8 +1476,8 @@
                 });
 
                 if (response.ok) {
-                    document.getElementById('form-card').style.display = 'none';
-                    document.getElementById('form-success').classList.add('show');
+                    btn.textContent = 'Redirecting to payment...';
+                    window.location.href = STRIPE_LINKS[selectedTier];
                 } else {
                     btn.textContent = 'Something went wrong — try again';
                     btn.disabled = false;
