@@ -729,6 +729,72 @@
             font-weight: 300;
         }
 
+        /* ---- Agenda Timeline ---- */
+        .timeline {
+            max-width: 720px;
+            margin: 3rem auto 0;
+            position: relative;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 24px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--glass-border);
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 64px;
+            padding-bottom: 2.5rem;
+        }
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: 16px;
+            top: 4px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--glass);
+            border: 2px solid var(--glass-border);
+            z-index: 1;
+        }
+        .timeline-item.highlight .timeline-dot {
+            background: var(--accent);
+            border-color: var(--accent);
+            box-shadow: 0 0 12px rgba(249, 115, 22, 0.4);
+        }
+        .timeline-time {
+            font-family: var(--mono);
+            font-size: 0.8125rem;
+            color: var(--gray-500);
+            margin-bottom: 0.35rem;
+        }
+        .timeline-item.highlight .timeline-time {
+            color: var(--accent);
+        }
+        .timeline-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 0.4rem;
+        }
+        .timeline-desc {
+            font-size: 0.9375rem;
+            color: var(--gray-400);
+            font-weight: 300;
+            line-height: 1.6;
+        }
+        @media (max-width: 640px) {
+            .timeline::before { left: 16px; }
+            .timeline-item { padding-left: 48px; }
+            .timeline-dot { left: 8px; }
+        }
+
         /* ---- Tier Selector ---- */
         .tier-selector {
             display: grid;
@@ -1125,11 +1191,71 @@
         </div>
     </section>
 
+    <!-- ============ THE DAY — AGENDA ============ -->
+    <section id="agenda" class="section-dark">
+        <div class="container">
+            <div class="reveal" style="text-align: center;">
+                <p class="section-label mono">04 &mdash; The Day</p>
+                <h2 class="section-title">6 hours. One room.<br>From idea to working product.</h2>
+                <p class="section-desc" style="margin: 0 auto; max-width: 560px;">A focused, full-day experience designed to take business owners from &ldquo;I should use AI&rdquo; to &ldquo;I just built something real.&rdquo;</p>
+            </div>
+
+            <div class="timeline reveal">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">10:00 &ndash; 10:15</div>
+                    <div class="timeline-title">Arrival &amp; Coffee</div>
+                    <div class="timeline-desc">Check-in, coffee and light refreshments, informal networking. Background slide deck looping with agenda, Wi-Fi, tools, and prompts.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">10:15 &ndash; 11:00</div>
+                    <div class="timeline-title">Opening Session: Framing the Day</div>
+                    <div class="timeline-desc">Welcome and objectives &mdash; professional development meets real problem solving. What &ldquo;success&rdquo; looks like by 4 PM. Overview of AI tools, live use cases and examples. Mentors and sponsors intro. Quick overview of presentation format.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">11:00 &ndash; 11:45</div>
+                    <div class="timeline-title">Problem Clarity &amp; Design Sprint</div>
+                    <div class="timeline-desc">Define the problem (Who? What? Why now?), reframe into an AI-ready problem statement, identify constraints, sketch solution directions. Facilitators circulate heavily. Deliverable: one clear, AI-buildable problem statement.</div>
+                </div>
+                <div class="timeline-item highlight">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">11:45 &ndash; 2:45</div>
+                    <div class="timeline-title">Build Sprint &mdash; 3 Hours</div>
+                    <div class="timeline-desc">Deep experimentation &mdash; tool setup, prototype workflows, build lightweight tools, develop AI prompts and agents, test real data, iterate quickly. Lunch and snacks included. Mentors rotate between teams. At 2:15, shift toward demo readiness.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">2:45 &ndash; 3:15</div>
+                    <div class="timeline-title">Prepare Presentations</div>
+                    <div class="timeline-desc">Teams prepare a tight 3-minute structure: Problem (1 min), What we built (1 min), Live demo (1 min).</div>
+                </div>
+                <div class="timeline-item highlight">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">3:15 &ndash; 4:00</div>
+                    <div class="timeline-title">Presentations</div>
+                    <div class="timeline-desc">3 minutes per team plus short Q&amp;A (2 min max). Teams demo on stage what they built.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">4:00 &ndash; 4:30</div>
+                    <div class="timeline-title">Closing</div>
+                    <div class="timeline-desc">Group reflection: What was a win? What surprised you? What will you implement next week? Close with next steps and follow-up support options.</div>
+                </div>
+            </div>
+
+            <div class="reveal" style="text-align: center; margin-top: 3rem;">
+                <a href="#register" class="btn-primary">Register Now &rarr;</a>
+            </div>
+        </div>
+    </section>
+
     <!-- ============ FROM OUR LAST EVENT ============ -->
     <section id="past-event" class="section-dark">
         <div class="container">
             <div class="reveal">
-                <p class="section-label mono">04 &mdash; From Our Last Event</p>
+                <p class="section-label mono">05 &mdash; From Our Last Event</p>
                 <h2 class="section-title">We've done this before. It worked.</h2>
                 <p class="section-desc">Lovable Halifax Women's AI Hackathon &middot; December 2025</p>
             </div>
@@ -1186,7 +1312,7 @@
     <section id="register" class="section-dark form-section">
         <div class="container">
             <div class="reveal" style="text-align: center;">
-                <p class="section-label mono">05 &mdash; Register</p>
+                <p class="section-label mono">06 &mdash; Register</p>
                 <h2 class="section-title">Register Your Team</h2>
                 <p class="section-desc" style="margin: 0 auto; max-width: 520px;">Spots are limited. Register now to secure your place at Atlantic Canada's biggest AI build day.</p>
             </div>
@@ -1280,7 +1406,7 @@
     <section id="faq" class="section-dark">
         <div class="container">
             <div class="reveal" style="text-align: center;">
-                <p class="section-label mono">06 &mdash; FAQ</p>
+                <p class="section-label mono">07 &mdash; FAQ</p>
                 <h2 class="section-title">Questions? We got you.</h2>
             </div>
 
