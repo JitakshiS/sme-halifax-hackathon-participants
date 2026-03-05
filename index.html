@@ -861,53 +861,7 @@
             }
         }
 
-        /* ---- FAQ ---- */
-        .faq-list {
-            max-width: 720px;
-            margin: 3rem auto 0;
-        }
-        .faq-item {
-            border-bottom: 1px solid var(--border-dark);
-        }
-        .faq-question {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1.5rem 0;
-            background: none;
-            border: none;
-            color: var(--white);
-            font-family: inherit;
-            font-size: 1.0625rem;
-            font-weight: 500;
-            cursor: pointer;
-            text-align: left;
-            gap: 1rem;
-        }
-        .faq-question:hover { color: var(--accent); }
-        .faq-icon {
-            width: 24px;
-            height: 24px;
-            flex-shrink: 0;
-            transition: transform 0.3s ease;
-        }
-        .faq-item.open .faq-icon { transform: rotate(45deg); }
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.35s ease, padding 0.35s ease;
-        }
-        .faq-item.open .faq-answer {
-            max-height: 200px;
-        }
-        .faq-answer p {
-            padding-bottom: 1.5rem;
-            font-size: 0.9375rem;
-            color: var(--gray-400);
-            line-height: 1.65;
-            font-weight: 300;
-        }
+
 
         /* ---- Footer ---- */
         footer {
@@ -987,7 +941,6 @@
             <a href="#how-it-works">How It Works</a>
             <a href="#tracks">Tracks</a>
             <a href="#past-event">Past Event</a>
-            <a href="#faq">FAQ</a>
             <a href="#register" class="nav-cta">Register Now</a>
         </div>
     </nav>
@@ -1400,61 +1353,6 @@
         </div>
     </section>
 
-    <!-- ============ FAQ ============ -->
-    <section id="faq" class="section-dark">
-        <div class="container">
-            <div class="reveal" style="text-align: center;">
-                <p class="section-label mono">07 &mdash; FAQ</p>
-                <h2 class="section-title">Questions? We got you.</h2>
-            </div>
-
-            <div class="faq-list reveal">
-                <div class="faq-item">
-                    <button class="faq-question">
-                        Do I need to know how to code?
-                        <svg class="faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
-                    </button>
-                    <div class="faq-answer"><p>No. The tools we use are no-code AI builders. If you can write an email, you can build at this hackathon. We'll teach you everything in a 20-minute orientation.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        Can I come alone or do I need a team?
-                        <svg class="faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
-                    </button>
-                    <div class="faq-answer"><p>Both! Solo builders are welcome, or bring your team of up to 4. We'll help match solo participants into teams on the day if you'd like.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        What tools will we use?
-                        <svg class="faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
-                    </button>
-                    <div class="faq-answer"><p>AI-powered no-code builders like Lovable, v0, and Claude Code. You don't need to learn them beforehand &mdash; we'll walk you through everything at the event.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        What do I actually walk away with?
-                        <svg class="faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
-                    </button>
-                    <div class="faq-answer"><p>A working prototype &mdash; a real tool or app for your business that you can keep building on after the event. Plus connections, content, and potentially prizes.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        What's included in the ticket price?
-                        <svg class="faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
-                    </button>
-                    <div class="faq-answer"><p>Everything. Full-day access, hands-on mentorship, AI tool credits, food and drinks, and a working prototype you keep. Teams of 2&ndash;3 are $150, teams of 4&ndash;5 are $250 &mdash; heavily subsidized by our sponsors.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        I'm not a tech company. Is this for me?
-                        <svg class="faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
-                    </button>
-                    <div class="faq-answer"><p>Absolutely. This event is specifically designed for non-tech business owners. Restaurants, contractors, retailers, agencies &mdash; if you have a business problem, AI can help you solve it.</p></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- ============ FOOTER ============ -->
     <footer>
         <div class="footer-inner">
@@ -1540,16 +1438,6 @@
                         behavior: 'smooth'
                     });
                 }
-            });
-        });
-
-        // FAQ accordion
-        document.querySelectorAll('.faq-question').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const item = btn.parentElement;
-                const wasOpen = item.classList.contains('open');
-                document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
-                if (!wasOpen) item.classList.add('open');
             });
         });
 
