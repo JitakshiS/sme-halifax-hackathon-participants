@@ -1603,7 +1603,8 @@
 
                 if (response.ok) {
                     btn.textContent = 'Redirecting to payment...';
-                    window.location.href = STRIPE_LINKS[selectedTier];
+                    const email = encodeURIComponent(document.getElementById('email').value);
+                    window.location.href = STRIPE_LINKS[selectedTier] + '?prefilled_email=' + email;
                 } else {
                     btn.textContent = 'Something went wrong — try again';
                     btn.disabled = false;
