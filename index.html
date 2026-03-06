@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register — The Atlantic AI Business Hackathon</title>
-    <meta name="description" content="Atlantic Canada's biggest AI build day. Your team builds it. You keep it. One day, real AI tools for your business — no coding required.">
+    <meta name="description" content="Atlantic Canada's first AI build day for business owners. Your team builds a real AI-powered tool for your business — no coding required. Volta, Halifax. April 16, 2026.">
     <meta property="og:title" content="Register — The Atlantic AI Business Hackathon">
-    <meta property="og:description" content="Atlantic Canada's biggest AI build day. Your team builds it. You keep it. Halifax, NS. April 16, 2026.">
+    <meta property="og:description" content="A full-day guided workshop where your team builds a real AI-powered tool for your business. Volta, Halifax, NS. April 16, 2026.">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
 
@@ -861,7 +861,112 @@
             }
         }
 
+        /* ---- FAQ ---- */
+        .faq-list {
+            max-width: 720px;
+            margin: 3rem auto 0;
+        }
+        .faq-item {
+            border-bottom: 1px solid var(--border-light);
+        }
+        .faq-question {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.5rem 0;
+            background: none;
+            border: none;
+            color: var(--black);
+            font-family: inherit;
+            font-size: 1.0625rem;
+            font-weight: 500;
+            cursor: pointer;
+            text-align: left;
+            gap: 1rem;
+        }
+        .faq-question:hover { color: var(--accent); }
+        .faq-icon {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+            color: var(--gray-500);
+        }
+        .faq-item.open .faq-icon { transform: rotate(45deg); }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, padding 0.35s ease;
+        }
+        .faq-item.open .faq-answer {
+            max-height: 300px;
+        }
+        .faq-answer p {
+            padding-bottom: 1.5rem;
+            font-size: 0.9375rem;
+            color: var(--gray-500);
+            line-height: 1.65;
+            font-weight: 300;
+        }
 
+        /* ---- Testimonials ---- */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        .testimonial-card {
+            background: var(--glass);
+            border: 1px solid var(--border-dark);
+            border-radius: 16px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+        .testimonial-quote {
+            font-size: 0.9375rem;
+            color: var(--gray-200);
+            line-height: 1.7;
+            font-weight: 300;
+            font-style: italic;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-top: auto;
+        }
+        .testimonial-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .testimonial-name {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--white);
+        }
+        .testimonial-role {
+            font-size: 0.75rem;
+            color: var(--gray-400);
+            font-weight: 300;
+        }
+
+        /* ---- Video ---- */
+        .recap-video {
+            margin-top: 3rem;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-dark);
+        }
+        .recap-video video {
+            width: 100%;
+            display: block;
+        }
 
         /* ---- Footer ---- */
         footer {
@@ -940,6 +1045,7 @@
         <div class="nav-links">
             <a href="#how-it-works">How It Works</a>
             <a href="#tracks">Tracks</a>
+            <a href="#faq">FAQ</a>
             <a href="#past-event">Past Event</a>
             <a href="#register" class="nav-cta">Register Now</a>
         </div>
@@ -957,10 +1063,10 @@
 <span style="color: var(--accent); font-weight: 600;">April 16, 2026</span> &middot; Registration Open
             </div>
 
-            <h1>Atlantic Canada's First<br>AI Hackathon for SMEs.<br><span>Your Team Builds It. You Keep It.</span></h1>
+            <h1>Atlantic Canada's First<br>AI Build Day for Business Owners.<br><span>Your Team Builds It. You Keep It.</span></h1>
 
             <p class="hero-sub">
-                No coding required.
+                A full-day guided workshop where your team builds a real AI-powered tool for your business. No coding. No tech skills. Just bring the problem.
             </p>
 
             <div class="hero-cta-group">
@@ -971,14 +1077,12 @@
                 <a href="#how-it-works" class="btn-secondary">How It Works</a>
             </div>
 
-            <div class="hero-meta">
-                <span>Halifax, NS</span>
+            <div class="hero-meta" style="font-size: 1.0625rem; font-weight: 500; letter-spacing: 0.01em;">
+                <span style="color: var(--accent);">April 16, 2026 &middot; Thursday</span>
+                <span class="sep"></span>
+                <span>Volta, Halifax, NS</span>
                 <span class="sep"></span>
                 <span>10am &ndash; 4:30pm</span>
-                <span class="sep"></span>
-                <span>Max 10 Teams</span>
-                <span class="sep"></span>
-                <span>Up to 50 Builders</span>
             </div>
         </div>
     </section>
@@ -1122,7 +1226,7 @@
                 </div>
                 <div class="benefit-item">
                     <div class="benefit-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456Z"/></svg></div>
-                    <div><h4>Free AI Tool Credits</h4><p>Sponsored credits for Lovable, v0, Claude Code, and more.</p></div>
+                    <div><h4>Free AI Tool Credits</h4><p>Free credits to keep building your solution (Lovable, v0, Claude Code, and more).</p></div>
                 </div>
                 <div class="benefit-item">
                     <div class="benefit-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"/></svg></div>
@@ -1144,11 +1248,66 @@
         </div>
     </section>
 
+    <!-- ============ COMMON QUESTIONS ============ -->
+    <section id="faq" class="section-light">
+        <div class="container">
+            <div class="reveal" style="text-align: center;">
+                <p class="section-label mono">04 &mdash; Common Questions</p>
+                <h2 class="section-title">We get it. You have questions.</h2>
+            </div>
+
+            <div class="faq-list reveal">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Do I really not need to know how to code?
+                        <svg class="faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+                    </button>
+                    <div class="faq-answer"><p>Not at all. The AI tools we use let you describe what you want in plain English &mdash; and they build it for you. We provide a guided orientation at the start and expert mentors are with you all day. In our last event, participants with zero tech experience built working prototypes in just two hours.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What if I don't know what to build?
+                        <svg class="faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+                    </button>
+                    <div class="faq-answer"><p>That's completely normal. We have a structured Problem Clarity session at the start of the day to help you identify the perfect project. Our mentors will help you narrow it down to something buildable and valuable for your business.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Is this going to be over my head?
+                        <svg class="faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+                    </button>
+                    <div class="faq-answer"><p>No. This event is specifically designed for business owners, not developers. Everything is guided, mentors are by your side, and the tools do the heavy lifting. You focus on the business problem &mdash; the AI handles the technical part.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What do I actually leave with?
+                        <svg class="faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+                    </button>
+                    <div class="faq-answer"><p>A working prototype &mdash; a real tool or app for your business that you own and can keep building on after the event. Plus free AI tool credits to continue developing it.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Can I come alone or do I need a team?
+                        <svg class="faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+                    </button>
+                    <div class="faq-answer"><p>Both work! Bring your team of up to 5 people, or come solo. Solo builders are fully supported with mentors and can collaborate with others on the day.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Is $150&ndash;250 worth it?
+                        <svg class="faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+                    </button>
+                    <div class="faq-answer"><p>Your ticket includes a full day of expert-guided building, free AI tool credits (Lovable, v0, Claude Code, and more), breakfast and lunch, expert mentors all day, and a working prototype you keep. Solo or duo is $150, teams of 3&ndash;5 are $250. Most participants say the tool credits and mentorship alone are worth several times the ticket price.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ============ THE DAY — AGENDA ============ -->
     <section id="agenda" class="section-dark">
         <div class="container">
             <div class="reveal" style="text-align: center;">
-                <p class="section-label mono">04 &mdash; The Day</p>
+                <p class="section-label mono">05 &mdash; The Day</p>
                 <h2 class="section-title">6 hours. One room.<br>From idea to working product.</h2>
                 <p class="section-desc" style="margin: 0 auto; max-width: 560px;">A focused, full-day experience designed to take business owners from &ldquo;I should use AI&rdquo; to &ldquo;I just built something real.&rdquo;</p>
             </div>
@@ -1208,22 +1367,22 @@
     <section id="past-event" class="section-dark">
         <div class="container">
             <div class="reveal">
-                <p class="section-label mono">05 &mdash; From Our Last Event</p>
+                <p class="section-label mono">06 &mdash; From Our Last Event</p>
                 <h2 class="section-title">We've done this before. It worked.</h2>
                 <p class="section-desc">Lovable Halifax Women's AI Hackathon &middot; December 2025</p>
             </div>
 
             <div class="past-stats reveal-stagger">
                 <div class="past-stat">
-                    <p class="past-stat-number" data-count="70">0</p>
+                    <p class="past-stat-number" data-count="70">70+</p>
                     <p class="past-stat-text">Registered</p>
                 </div>
                 <div class="past-stat">
-                    <p class="past-stat-number" data-count="37">0</p>
+                    <p class="past-stat-number" data-count="37">37</p>
                     <p class="past-stat-text">Built prototypes</p>
                 </div>
                 <div class="past-stat">
-                    <p class="past-stat-number" data-count="7">0</p>
+                    <p class="past-stat-number" data-count="7">7</p>
                     <p class="past-stat-text">Winners awarded</p>
                 </div>
                 <div class="past-stat">
@@ -1237,7 +1396,7 @@
                     <img src="images/proof-group.jpeg" alt="Full group photo of all hackathon participants">
                 </div>
                 <div class="past-photo">
-                    <img src="images/proof-room.jpeg" alt="Room full of participants working at the hackathon">
+                    <video src="images/hackathon-recap.mp4" autoplay loop playsinline preload="metadata" poster="images/proof-room.jpeg" style="width:100%; height:100%; object-fit:cover;"></video>
                 </div>
                 <div class="past-photo">
                     <img src="images/proof-building.jpg" alt="Team collaborating and building at a table">
@@ -1247,8 +1406,58 @@
                 </div>
             </div>
 
-            <div class="past-callout reveal">
-                <p>&ldquo;37 participants built working prototypes with zero coding experience in just two hours. Now we're going bigger &mdash; full day, premier venue, more tracks.&rdquo;</p>
+            <!-- Testimonials -->
+            <div class="testimonials-grid reveal-stagger">
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">&ldquo;Amazing work Jitakshi S. and team. I loved seeing all of the creative Shopify x Lovable projects from this community.&rdquo;</p>
+                    <div class="testimonial-author">
+                        <img src="images/testimonial-natalie.jpeg" alt="Natalie Mannion" class="testimonial-avatar">
+                        <div>
+                            <p class="testimonial-name">Natalie Mannion</p>
+                            <p class="testimonial-role">Product at Shopify (Sponsor)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">&ldquo;Thank you so much for this amazing hackathon Jitakshi! It was the best one I've ever participated in.&rdquo;</p>
+                    <div class="testimonial-author">
+                        <img src="images/testimonial-yuhan.jpeg" alt="Yuhan Fu" class="testimonial-avatar">
+                        <div>
+                            <p class="testimonial-name">Yuhan Fu</p>
+                            <p class="testimonial-role">Hackathon Participant</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">&ldquo;It was a very pleasant experience and I would definitely be interested in participating in more of these events &mdash; I appreciate you being a pioneer of such gatherings here in Halifax.&rdquo;</p>
+                    <div class="testimonial-author">
+                        <img src="images/testimonial-galilea.jpeg" alt="Galilea Ibang" class="testimonial-avatar">
+                        <div>
+                            <p class="testimonial-name">Galilea Ibang</p>
+                            <p class="testimonial-role">Hackathon Participant</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">&ldquo;Working with you was absolutely amazing! Here's to many more hackathons in 2026 and beyond!&rdquo;</p>
+                    <div class="testimonial-author">
+                        <img src="images/testimonial-thauana.jpeg" alt="Thauana Morais" class="testimonial-avatar">
+                        <div>
+                            <p class="testimonial-name">Thauana Morais</p>
+                            <p class="testimonial-role">UN CSW Delegate, YWCA (Sponsor)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">&ldquo;Working with Jitakshi has been a wonderful experience! She's very supportive and encourages everyone to keep working on their goals.&rdquo;</p>
+                    <div class="testimonial-author">
+                        <img src="images/testimonial-soumya.jpeg" alt="Soumya Jain" class="testimonial-avatar">
+                        <div>
+                            <p class="testimonial-name">Soumya Jain</p>
+                            <p class="testimonial-role">Collaborator</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <p class="reveal" style="margin-top: 2rem;">
@@ -1265,9 +1474,9 @@
     <section id="register" class="section-dark form-section">
         <div class="container">
             <div class="reveal" style="text-align: center;">
-                <p class="section-label mono">06 &mdash; Register</p>
+                <p class="section-label mono">07 &mdash; Register</p>
                 <h2 class="section-title">Register Your Team</h2>
-                <p class="section-desc" style="margin: 0 auto; max-width: 520px;">Spots are limited. Register now to secure your place at Atlantic Canada's biggest AI build day.</p>
+                <p class="section-desc" style="margin: 0 auto; max-width: 520px;">Spots are limited. Register now to secure your place at Atlantic Canada's biggest AI build day for business owners and their teams.</p>
             </div>
 
             <!-- Event details inline -->
@@ -1278,7 +1487,7 @@
                 </div>
                 <div class="detail-card" style="background: var(--glass); border: none;">
                     <p class="detail-card-label" style="color: var(--gray-500);">Where</p>
-                    <p class="detail-card-value" style="color: var(--white);">Halifax, NS</p>
+                    <p class="detail-card-value" style="color: var(--white);">Volta, Halifax, NS</p>
                 </div>
                 <div class="detail-card" style="background: var(--glass); border: none;">
                     <p class="detail-card-label" style="color: var(--gray-500);">Duration</p>
@@ -1286,7 +1495,7 @@
                 </div>
                 <div class="detail-card" style="background: var(--glass); border: none;">
                     <p class="detail-card-label" style="color: var(--gray-500);">Team Size</p>
-                    <p class="detail-card-value" style="color: var(--white);">2&ndash;5 people</p>
+                    <p class="detail-card-value" style="color: var(--white);">1&ndash;5 people</p>
                 </div>
                 <div class="detail-card" style="background: var(--glass); border: none;">
                     <p class="detail-card-label" style="color: var(--gray-500);">Cost</p>
@@ -1325,17 +1534,18 @@
                             <div class="tier-selector">
                                 <label class="tier-card" data-tier="small">
                                     <input type="radio" name="team_tier" value="small_team" required>
-                                    <div class="tier-name">Small Team</div>
+                                    <div class="tier-name">Solo / Duo</div>
                                     <div class="tier-price">$150</div>
-                                    <div class="tier-detail">2&ndash;3 people</div>
+                                    <div class="tier-detail">1&ndash;2 people</div>
                                 </label>
                                 <label class="tier-card" data-tier="full">
                                     <input type="radio" name="team_tier" value="full_team">
-                                    <div class="tier-name">Full Team</div>
+                                    <div class="tier-name">Team</div>
                                     <div class="tier-price">$250</div>
-                                    <div class="tier-detail">4&ndash;5 people</div>
+                                    <div class="tier-detail">3&ndash;5 people</div>
                                 </label>
                             </div>
+                            <p style="margin-top: 0.75rem; font-size: 0.8125rem; color: var(--gray-400); text-align: center; line-height: 1.5; font-weight: 300;">Every ticket includes: full-day mentorship, free AI tool credits, breakfast &amp; lunch, and a working prototype you keep.</p>
                         </div>
                         <div class="form-row">
                             <label for="challenge">Any business challenge you'd like to tackle? <span style="opacity: 0.5; font-weight: 400;">(optional)</span></label>
@@ -1438,6 +1648,16 @@
                         behavior: 'smooth'
                     });
                 }
+            });
+        });
+
+        // FAQ accordion
+        document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.parentElement;
+                const wasOpen = item.classList.contains('open');
+                document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+                if (!wasOpen) item.classList.add('open');
             });
         });
 
