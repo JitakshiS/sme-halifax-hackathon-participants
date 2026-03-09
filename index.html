@@ -226,6 +226,7 @@
             font-size: 0.6em;
             margin-top: 0.5rem;
         }
+        /* unused but kept for safety */
         .hero-sub {
             font-size: clamp(1rem, 1.5vw, 1.25rem);
             color: var(--gray-400);
@@ -869,9 +870,13 @@
 
         /* ---- FAQ ---- */
         .faq-list {
-            max-width: 720px;
+            max-width: 960px;
             margin: 3rem auto 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0 2.5rem;
         }
+        @media (max-width: 768px) { .faq-list { grid-template-columns: 1fr; } }
         .faq-item {
             border-bottom: 1px solid var(--border-light);
         }
@@ -949,8 +954,8 @@
             margin-bottom: 0.25rem;
         }
         .process-title {
-            font-size: 0.8125rem;
-            font-weight: 600;
+            font-size: 1rem;
+            font-weight: 700;
             color: var(--black);
         }
         @media (max-width: 600px) {
@@ -1247,10 +1252,10 @@
 <span style="color: var(--accent); font-weight: 600;">April 16, 2026</span> &middot; Registration Open
             </div>
 
-            <h1>Atlantic Canada's First AI Build Day<br>for Business Owners.<br><span>Your Team Builds It. You Keep It.</span></h1>
+            <h1>Atlantic Canada's First<br>AI Build Day<br>for Business Owners.</h1>
 
             <p class="hero-sub">
-                A safe, guided, full-day workshop where non-technical business owners build a real AI-powered tool &mdash; with expert mentors by your side every step. No coding. No tech background. Just bring the problem you've been putting off.
+                A guided, full-day workshop with expert mentors. No coding. No tech skills. Just bring a business problem and leave with a solution you can use every day.
             </p>
 
             <div class="hero-cta-group">
@@ -1279,8 +1284,8 @@
                 <h2 class="section-title">Every business has that one thing held together<br>with duct tape and spreadsheets.</h2>
             </div>
 
-            <div class="reveal" style="margin-top: 3rem; max-width: 640px;">
-                <h3 style="font-size: 1.75rem; font-weight: 700; line-height: 1.3; letter-spacing: -0.02em; color: var(--black);">You know AI could help your business.<br>You just don't know where to start.</h3>
+            <div class="reveal" style="margin-top: 3rem; max-width: 900px;">
+                <h3 style="font-size: 1.75rem; font-weight: 700; line-height: 1.3; letter-spacing: -0.02em; color: var(--black);">You know AI could help your business. You just don't know where to start.</h3>
                 <p style="margin-top: 0.75rem; font-size: 1.0625rem; color: var(--gray-500); font-weight: 300; line-height: 1.6;">Here's what people are building at this event:</p>
             </div>
 
@@ -1338,8 +1343,6 @@
             </div>
 
             <p class="reveal" style="margin-top: 2rem; font-size: 0.9375rem; color: var(--gray-500); text-align: center; line-height: 1.6;">Built with <strong style="color: var(--black);">Lovable</strong>, <strong style="color: var(--black);">Claude Code</strong>, <strong style="color: var(--black);">v0</strong>, and more &mdash; <span style="color: var(--accent); font-weight: 500;">$200+ in free tool credits</span> included with every ticket.</p>
-
-            <p class="reveal" style="margin-top: 2rem; font-size: 1.125rem; color: var(--gray-500); font-weight: 300;">If you've ever thought "there has to be a better way" &mdash; this is your chance to build it, in a room full of people who get it. <em style="color: var(--accent); font-style: italic;">No judgement. No jargon. Just progress.</em></p>
 
             <div class="process-strip reveal">
                 <div class="process-step">
@@ -1432,7 +1435,7 @@
         <div class="container">
             <div class="reveal" style="text-align: center;">
                 <p class="section-label mono">03 &mdash; The Day</p>
-                <h2 class="section-title">You'll arrive nervous. You'll leave<br>with something real.</h2>
+                <h2 class="section-title">6 hours to live-build with AI mentors,<br>demo, and win prizes.</h2>
             </div>
 
             <div class="schedule-blocks reveal-stagger">
@@ -1502,6 +1505,12 @@
                         <div class="timeline-desc">Group reflection, wins, surprises, and next steps for follow-up support.</div>
                     </div>
                 </div>
+            </div>
+
+            <div class="reveal" style="margin-top: 2.5rem; text-align: center;">
+                <p style="font-size: 0.8125rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 1rem;">What's included in your ticket</p>
+                <p style="font-size: 1rem; color: var(--gray-200); line-height: 1.8; font-weight: 300;">Coffee &amp; breakfast &middot; Lunch &middot; $200+ in AI tool credits &middot; Expert mentor support all day<br>Prizes &middot; Certificates &middot; A working prototype you keep</p>
+                <p style="margin-top: 1rem; font-size: 0.875rem; color: var(--gray-500); font-style: italic;">Just bring your laptop and charger. We handle the rest.</p>
             </div>
 
             <div class="reveal" style="text-align: center; margin-top: 2rem;">
