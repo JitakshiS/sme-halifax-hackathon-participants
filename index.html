@@ -961,6 +961,7 @@
         @media (max-width: 600px) {
             .process-strip { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
             .process-step:nth-child(2)::after { display: none; }
+            .problems-grid { grid-template-columns: 1fr !important; }
         }
 
         /* ---- Benefits Callout ---- */
@@ -1293,29 +1294,49 @@
                 <span class="pitch-badge">Real Business Outcomes</span>
             </div>
 
-            <div class="personas-grid reveal-stagger" style="margin-top: 4rem;">
+            <div class="reveal" style="margin-top: 3.5rem; max-width: 640px;">
+                <h3 style="font-size: 1.75rem; font-weight: 700; line-height: 1.3; letter-spacing: -0.02em; color: var(--black);">You know AI could help your business.<br>You just don't know where to start.</h3>
+                <p style="margin-top: 0.75rem; font-size: 1.0625rem; color: var(--gray-500); font-weight: 300; line-height: 1.6;">That's exactly why this event exists. Here's who shows up:</p>
+            </div>
+
+            <div class="personas-grid reveal-stagger" style="margin-top: 2rem;">
                 <div class="persona-card" style="background: var(--accent-soft); border: 1px solid rgba(249, 115, 22, 0.1);">
                     <div class="persona-emoji">&#127869;</div>
                     <h4 style="color: var(--black);">The Restaurant Owner</h4>
-                    <p style="color: var(--gray-500);">Who spends Sunday nights manually confirming Monday's bookings &mdash; and knows there has to be a better way.</p>
+                    <p style="color: var(--gray-500);">Who spends Sunday nights manually confirming Monday's bookings and replying to the same questions on Instagram. You know there's a better way &mdash; you just haven't had time to figure it out.</p>
                 </div>
                 <div class="persona-card" style="background: var(--accent-soft); border: 1px solid rgba(249, 115, 22, 0.1);">
                     <div class="persona-emoji">&#128736;</div>
                     <h4 style="color: var(--black);">The Contractor</h4>
-                    <p style="color: var(--gray-500);">Who's great at the work but loses hours every week chasing invoices and quoting jobs by hand.</p>
+                    <p style="color: var(--gray-500);">Who's great at the work but loses hours every week chasing invoices, re-typing the same quote template, and wondering which jobs are actually profitable.</p>
                 </div>
                 <div class="persona-card" style="background: var(--accent-soft); border: 1px solid rgba(249, 115, 22, 0.1);">
                     <div class="persona-emoji">&#128717;</div>
                     <h4 style="color: var(--black);">The Retailer</h4>
-                    <p style="color: var(--gray-500);">Who knows their online store isn't working but doesn't know what to fix &mdash; or who to trust to fix it.</p>
+                    <p style="color: var(--gray-500);">Who knows their online store isn't converting but can't tell if it's the photos, the copy, or the checkout flow &mdash; and every agency quote feels like a gamble.</p>
                 </div>
                 <div class="persona-card" style="background: var(--accent-soft); border: 1px solid rgba(249, 115, 22, 0.1);">
                     <div class="persona-emoji">&#128202;</div>
                     <h4 style="color: var(--black);">The Agency Owner</h4>
-                    <p style="color: var(--gray-500);">Who's managing everything in their head and spreadsheets and knows something will slip through the cracks eventually.</p>
+                    <p style="color: var(--gray-500);">Who's tracking projects across Slack, email, spreadsheets, and their memory &mdash; and knows one missed deadline could cost a client.</p>
                 </div>
             </div>
             <p class="reveal" style="margin-top: 2rem; font-size: 1.125rem; color: var(--gray-500); font-weight: 300;">If you've ever thought "there has to be a better way" &mdash; this is your chance to build it, in a room full of people who get it. <em style="color: var(--accent); font-style: italic;">No judgement. No jargon. Just progress.</em></p>
+
+            <div class="reveal" style="margin-top: 2.5rem; max-width: 720px;">
+                <p style="font-size: 0.8125rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 1rem;">Problems people are bringing to solve:</p>
+                <div class="problems-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.625rem; font-size: 0.9375rem; color: var(--gray-600); font-weight: 300; line-height: 1.5;">
+                    <p>&bull; "I answer the same 10 customer questions every single day"</p>
+                    <p>&bull; "My team wastes hours copying data between spreadsheets"</p>
+                    <p>&bull; "I can't tell which of my services actually makes money"</p>
+                    <p>&bull; "Our booking system is literally a shared Google Doc"</p>
+                    <p>&bull; "I write the same follow-up email 30 times a week"</p>
+                    <p>&bull; "My website looks like it was made in 2015 &mdash; because it was"</p>
+                    <p>&bull; "New staff training takes 3 weeks because nothing is documented"</p>
+                    <p>&bull; "I know I'm losing leads but I don't know where or why"</p>
+                </div>
+                <p style="margin-top: 1rem; font-size: 0.875rem; color: var(--gray-400); font-style: italic;">Sound familiar? Every one of these can be solved in a single day with AI tools.</p>
+            </div>
 
             <div class="process-strip reveal">
                 <div class="process-step">
