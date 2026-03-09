@@ -43,6 +43,7 @@
             -webkit-font-smoothing: antialiased;
             font-kerning: normal;
             text-rendering: optimizeLegibility;
+            overflow-x: hidden;
         }
 
         [id] { scroll-margin-top: 5rem; }
@@ -125,7 +126,7 @@
         }
         @media (max-width: 768px) {
             .nav-links { display: none; }
-            nav { padding: 1rem 1.25rem; }
+            nav { padding: 1rem 1.25rem; background: rgba(9, 9, 11, 0.92); }
             .hero { padding: 6rem 1.25rem 4rem; min-height: auto; }
             .hero h1 { font-size: clamp(1.75rem, 7vw, 2.5rem); }
             .hero-sub { font-size: 0.9375rem; margin-bottom: 2.5rem; }
