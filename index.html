@@ -449,39 +449,185 @@
         .showcase-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 1rem;
+            gap: 0.875rem;
             margin-top: 2.5rem;
         }
         @media (max-width: 900px) { .showcase-grid { grid-template-columns: repeat(3, 1fr); } }
         @media (max-width: 600px) { .showcase-grid { grid-template-columns: repeat(2, 1fr); } }
         .showcase-card {
-            padding: 1.5rem;
+            position: relative;
+            padding: 1.25rem;
             background: var(--white);
-            border: 1px solid rgba(0, 0, 0, 0.06);
-            border-radius: 14px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 4px 20px rgba(0, 0, 0, 0.02);
-            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            overflow: hidden;
+        }
+        .showcase-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), #f59e0b);
+            opacity: 0;
+            transition: opacity 0.35s ease;
         }
         .showcase-card:hover {
-            border-color: rgba(249, 115, 22, 0.35);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(249, 115, 22, 0.08), 0 4px 16px rgba(0, 0, 0, 0.06);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(249, 115, 22, 0.10), 0 4px 12px rgba(0,0,0,0.06);
+            border-color: rgba(249, 115, 22, 0.2);
         }
-        .showcase-emoji {
-            font-size: 1.75rem;
-            margin-bottom: 0.75rem;
+        .showcase-card:hover::before { opacity: 1; }
+        .showcase-icon-wrap {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(249,115,22,0.08), rgba(249,115,22,0.02));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            margin-bottom: 0.875rem;
         }
         .showcase-title {
-            font-size: 0.9375rem;
+            font-size: 0.875rem;
             font-weight: 600;
             color: var(--black);
-            margin-bottom: 0.35rem;
+            margin-bottom: 0.3rem;
+            letter-spacing: -0.01em;
         }
         .showcase-desc {
-            font-size: 0.8125rem;
+            font-size: 0.75rem;
             color: var(--gray-500);
             font-weight: 300;
             line-height: 1.5;
+        }
+        .showcase-tag {
+            display: inline-block;
+            margin-top: 0.625rem;
+            font-size: 0.625rem;
+            font-weight: 500;
+            color: var(--accent);
+            background: rgba(249,115,22,0.06);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            letter-spacing: 0.02em;
+        }
+
+        /* ---- Auto-play Timeline ---- */
+        .day-timeline {
+            max-width: 800px;
+            margin: 3rem auto 0;
+            position: relative;
+        }
+        .day-progress-track {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            padding: 0 1rem;
+        }
+        .day-progress-line {
+            position: absolute;
+            top: 50%;
+            left: 1rem;
+            right: 1rem;
+            height: 3px;
+            background: var(--glass-border);
+            transform: translateY(-50%);
+            border-radius: 2px;
+            z-index: 0;
+        }
+        .day-progress-fill {
+            position: absolute;
+            top: 50%;
+            left: 1rem;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), #f59e0b);
+            transform: translateY(-50%);
+            border-radius: 2px;
+            z-index: 1;
+            transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 0 12px rgba(249,115,22,0.3);
+        }
+        .day-step-dot {
+            position: relative;
+            z-index: 2;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--gray-800);
+            border: 2px solid var(--glass-border);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .day-step-dot.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px rgba(249,115,22,0.15), 0 0 16px rgba(249,115,22,0.3);
+            transform: scale(1.3);
+        }
+        .day-step-dot.done {
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+        .day-step-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+            padding: 0 0.25rem;
+        }
+        .day-step-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.6875rem;
+            color: var(--gray-600);
+            text-align: center;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+        .day-step-label.active { color: var(--accent); font-weight: 600; }
+        .day-step-label.done { color: var(--gray-400); }
+        .day-content {
+            margin-top: 2rem;
+            min-height: 120px;
+        }
+        .day-content-card {
+            display: none;
+            background: var(--glass);
+            border: 1px solid var(--border-dark);
+            border-radius: 16px;
+            padding: 2rem;
+            animation: fadeSlideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .day-content-card.active { display: block; }
+        @keyframes fadeSlideIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .day-content-time {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent);
+            font-weight: 500;
+        }
+        .day-content-title {
+            font-size: 1.375rem;
+            font-weight: 700;
+            color: var(--white);
+            margin: 0.5rem 0;
+            letter-spacing: -0.02em;
+        }
+        .day-content-desc {
+            font-size: 1rem;
+            color: var(--gray-400);
+            font-weight: 300;
+            line-height: 1.65;
+        }
+        @media (max-width: 600px) {
+            .day-step-label { font-size: 0.5625rem; }
+            .day-content-card { padding: 1.5rem; }
+            .day-content-title { font-size: 1.125rem; }
         }
 
         /* ---- Benefits Grid ---- */
@@ -1292,54 +1438,64 @@
 
             <div class="showcase-grid reveal-stagger">
                 <div class="showcase-card">
-                    <div class="showcase-emoji">&#128722;</div>
+                    <div class="showcase-icon-wrap">&#128722;</div>
                     <p class="showcase-title">Shopify Store with AI</p>
-                    <p class="showcase-desc">Launch a full online store using Lovable + Shopify integration</p>
+                    <p class="showcase-desc">Launch a full online store with product pages and checkout</p>
+                    <span class="showcase-tag">Lovable + Shopify</span>
                 </div>
                 <div class="showcase-card">
-                    <div class="showcase-emoji">&#128176;</div>
+                    <div class="showcase-icon-wrap">&#128176;</div>
                     <p class="showcase-title">Automated Invoicing</p>
-                    <p class="showcase-desc">Bills go out and get paid automatically &mdash; no more chasing</p>
+                    <p class="showcase-desc">Bills go out and get paid automatically</p>
+                    <span class="showcase-tag">Claude Code</span>
                 </div>
                 <div class="showcase-card">
-                    <div class="showcase-emoji">&#129302;</div>
-                    <p class="showcase-title">AI Customer Support Bot</p>
-                    <p class="showcase-desc">Answer the same 10 questions without lifting a finger</p>
+                    <div class="showcase-icon-wrap">&#129302;</div>
+                    <p class="showcase-title">AI Customer Support</p>
+                    <p class="showcase-desc">Answer FAQs without lifting a finger</p>
+                    <span class="showcase-tag">Lovable</span>
                 </div>
                 <div class="showcase-card">
-                    <div class="showcase-emoji">&#128197;</div>
+                    <div class="showcase-icon-wrap">&#128197;</div>
                     <p class="showcase-title">Smart Booking Portal</p>
-                    <p class="showcase-desc">Clients book, confirm, and reschedule themselves</p>
+                    <p class="showcase-desc">Clients book and reschedule themselves</p>
+                    <span class="showcase-tag">Lovable</span>
                 </div>
                 <div class="showcase-card">
-                    <div class="showcase-emoji">&#127908;</div>
+                    <div class="showcase-icon-wrap">&#127908;</div>
                     <p class="showcase-title">Sales Call Optimizer</p>
-                    <p class="showcase-desc">Record, transcribe, and extract action items from every call</p>
+                    <p class="showcase-desc">Transcribe and extract action items from calls</p>
+                    <span class="showcase-tag">Claude Code</span>
                 </div>
                 <div class="showcase-card">
-                    <div class="showcase-emoji">&#127942;</div>
-                    <p class="showcase-title">Client Onboarding Flow</p>
-                    <p class="showcase-desc">Gamify your onboarding so new clients actually complete it</p>
+                    <div class="showcase-icon-wrap">&#127942;</div>
+                    <p class="showcase-title">Client Onboarding</p>
+                    <p class="showcase-desc">Gamify onboarding so clients complete it</p>
+                    <span class="showcase-tag">Lovable</span>
                 </div>
                 <div class="showcase-card">
-                    <div class="showcase-emoji">&#128200;</div>
-                    <p class="showcase-title">Team Project Dashboard</p>
-                    <p class="showcase-desc">See every project, deadline, and bottleneck in one view</p>
+                    <div class="showcase-icon-wrap">&#128200;</div>
+                    <p class="showcase-title">Team Dashboard</p>
+                    <p class="showcase-desc">Projects, deadlines, bottlenecks in one view</p>
+                    <span class="showcase-tag">v0</span>
                 </div>
                 <div class="showcase-card">
-                    <div class="showcase-emoji">&#9997;&#65039;</div>
+                    <div class="showcase-icon-wrap">&#9997;&#65039;</div>
                     <p class="showcase-title">AI Content Engine</p>
-                    <p class="showcase-desc">Generate social posts, emails, and proposals in your brand voice</p>
+                    <p class="showcase-desc">Social posts and emails in your brand voice</p>
+                    <span class="showcase-tag">Claude Code</span>
                 </div>
                 <div class="showcase-card">
-                    <div class="showcase-emoji">&#128293;</div>
+                    <div class="showcase-icon-wrap">&#128293;</div>
                     <p class="showcase-title">Lead Scoring System</p>
-                    <p class="showcase-desc">Know which leads are hot before you pick up the phone</p>
+                    <p class="showcase-desc">Know which leads are hot before you call</p>
+                    <span class="showcase-tag">Claude Code</span>
                 </div>
                 <div class="showcase-card">
-                    <div class="showcase-emoji">&#128218;</div>
-                    <p class="showcase-title">Internal Knowledge Base</p>
-                    <p class="showcase-desc">New hires get answers instantly instead of asking 5 people</p>
+                    <div class="showcase-icon-wrap">&#128218;</div>
+                    <p class="showcase-title">Knowledge Base</p>
+                    <p class="showcase-desc">New hires get answers instantly</p>
+                    <span class="showcase-tag">Lovable</span>
                 </div>
             </div>
 
@@ -1435,71 +1591,48 @@
                 <h2 class="section-title">6 hours to live-build with AI mentors,<br>demo, and win prizes.</h2>
             </div>
 
-            <div class="schedule-blocks reveal-stagger">
-                <div class="schedule-block">
-                    <p class="schedule-block-time">10:00 &ndash; 11:45</p>
-                    <p class="schedule-block-title">Morning</p>
-                    <p class="schedule-block-desc">Kickoff, tool orientation, and a guided sprint to turn your messy business problem into a clear build plan. You'll know exactly what you're building before you start.</p>
+            <div class="day-timeline reveal" id="day-timeline">
+                <div class="day-progress-track">
+                    <div class="day-progress-line"></div>
+                    <div class="day-progress-fill" id="day-progress-fill" style="width: 0%;"></div>
+                    <div class="day-step-dot active" data-step="0" onclick="setDayStep(0)"></div>
+                    <div class="day-step-dot" data-step="1" onclick="setDayStep(1)"></div>
+                    <div class="day-step-dot" data-step="2" onclick="setDayStep(2)"></div>
+                    <div class="day-step-dot" data-step="3" onclick="setDayStep(3)"></div>
+                    <div class="day-step-dot" data-step="4" onclick="setDayStep(4)"></div>
                 </div>
-                <div class="schedule-block" style="border-color: var(--accent); background: rgba(249, 115, 22, 0.04);">
-                    <p class="schedule-block-time">11:45 &ndash; 2:45</p>
-                    <p class="schedule-block-title">Build Sprint</p>
-                    <p class="schedule-block-desc">This is where it happens. 3 hours of building with mentors rotating between teams, helping you through every stuck moment. Lunch included &mdash; you won't want to stop.</p>
+                <div class="day-step-labels">
+                    <span class="day-step-label active" data-step="0" onclick="setDayStep(0)">10:00 AM</span>
+                    <span class="day-step-label" data-step="1" onclick="setDayStep(1)">11:00 AM</span>
+                    <span class="day-step-label" data-step="2" onclick="setDayStep(2)">11:45 AM</span>
+                    <span class="day-step-label" data-step="3" onclick="setDayStep(3)">2:45 PM</span>
+                    <span class="day-step-label" data-step="4" onclick="setDayStep(4)">3:15 PM</span>
                 </div>
-                <div class="schedule-block">
-                    <p class="schedule-block-time">2:45 &ndash; 4:30</p>
-                    <p class="schedule-block-title">Afternoon</p>
-                    <p class="schedule-block-desc">Polish your demo, show what you built to the room, and compete for prizes. You'll be surprised what you created in one day.</p>
-                </div>
-            </div>
-
-            <div class="reveal" style="text-align: center; margin-top: 2rem;">
-                <button class="schedule-expand-btn" id="schedule-toggle" onclick="document.getElementById('schedule-detail').classList.toggle('open'); this.textContent = this.textContent.includes('See') ? 'Hide detailed schedule \u25B2' : 'See detailed schedule \u25BC';">See detailed schedule &#x25BC;</button>
-            </div>
-
-            <div class="schedule-detail" id="schedule-detail">
-                <div class="agenda-timeline" style="margin-top: 1.5rem;">
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-time">10:00 &ndash; 10:15</div>
-                        <div class="timeline-title">Arrival &amp; Coffee</div>
-                        <div class="timeline-desc">Check-in, refreshments, and informal networking.</div>
+                <div class="day-content">
+                    <div class="day-content-card active" data-step="0">
+                        <p class="day-content-time">10:00 &ndash; 11:00</p>
+                        <p class="day-content-title">Arrive, Coffee &amp; Kickoff</p>
+                        <p class="day-content-desc">Check in, grab coffee and breakfast. Then the opening session: AI tools overview, live demos, mentor intros, and what success looks like by 4 PM.</p>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-time">10:15 &ndash; 11:00</div>
-                        <div class="timeline-title">Opening Session</div>
-                        <div class="timeline-desc">Objectives, AI tools overview, live use cases, mentor intros, and what success looks like by 4 PM.</div>
+                    <div class="day-content-card" data-step="1">
+                        <p class="day-content-time">11:00 &ndash; 11:45</p>
+                        <p class="day-content-title">Problem Clarity Sprint</p>
+                        <p class="day-content-desc">Turn your messy business problem into a clear build plan. Mentors help you define exactly what you're building before you start.</p>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-time">11:00 &ndash; 11:45</div>
-                        <div class="timeline-title">Problem Clarity &amp; Design Sprint</div>
-                        <div class="timeline-desc">Define your challenge, reframe it into an AI-ready problem, and map your solution direction.</div>
+                    <div class="day-content-card" data-step="2">
+                        <p class="day-content-time">11:45 &ndash; 2:45</p>
+                        <p class="day-content-title">Build Sprint &mdash; 3 Hours</p>
+                        <p class="day-content-desc">This is where it happens. Deep building with AI tools, mentors rotating between teams, helping through every stuck moment. Lunch included.</p>
                     </div>
-                    <div class="timeline-item highlight">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-time">11:45 &ndash; 2:45</div>
-                        <div class="timeline-title">Build Sprint</div>
-                        <div class="timeline-desc">3 hours of deep building &mdash; prototyping, testing, iterating. Lunch included. Mentors rotate between teams.</div>
+                    <div class="day-content-card" data-step="3">
+                        <p class="day-content-time">2:45 &ndash; 3:15</p>
+                        <p class="day-content-title">Polish &amp; Prepare Demo</p>
+                        <p class="day-content-desc">Refine your prototype, prepare your 3-minute demo: the problem, what you built, and a live walkthrough for the judges.</p>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-time">2:45 &ndash; 3:15</div>
-                        <div class="timeline-title">Prepare Presentations</div>
-                        <div class="timeline-desc">Polish your demo: the problem, what you built, and a live walkthrough.</div>
-                    </div>
-                    <div class="timeline-item highlight">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-time">3:15 &ndash; 4:00</div>
-                        <div class="timeline-title">Presentations</div>
-                        <div class="timeline-desc">3 minutes per team on stage, plus Q&amp;A.</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-time">4:00 &ndash; 4:30</div>
-                        <div class="timeline-title">Closing</div>
-                        <div class="timeline-desc">Group reflection, wins, surprises, and next steps for follow-up support.</div>
+                    <div class="day-content-card" data-step="4">
+                        <p class="day-content-time">3:15 &ndash; 4:30</p>
+                        <p class="day-content-title">Present, Win Prizes &amp; Celebrate</p>
+                        <p class="day-content-desc">3 minutes on stage per team, Q&amp;A from judges, prizes awarded, certificates for everyone, and next steps for continued support.</p>
                     </div>
                 </div>
             </div>
@@ -1896,6 +2029,58 @@
             }, { threshold: 0.1 });
             observer.observe(heroSection);
             if (registerSection) observer.observe(registerSection);
+        }
+        // Day timeline auto-advance
+        let currentDayStep = 0;
+        const totalDaySteps = 5;
+        let dayInterval = null;
+
+        function setDayStep(step) {
+            currentDayStep = step;
+            const dots = document.querySelectorAll('.day-step-dot');
+            const labels = document.querySelectorAll('.day-step-label');
+            const cards = document.querySelectorAll('.day-content-card');
+            const fill = document.getElementById('day-progress-fill');
+            if (!fill) return;
+
+            dots.forEach((d, i) => {
+                d.classList.remove('active', 'done');
+                if (i < step) d.classList.add('done');
+                if (i === step) d.classList.add('active');
+            });
+            labels.forEach((l, i) => {
+                l.classList.remove('active', 'done');
+                if (i < step) l.classList.add('done');
+                if (i === step) l.classList.add('active');
+            });
+            cards.forEach((c, i) => {
+                c.classList.toggle('active', i === step);
+            });
+            fill.style.width = (step / (totalDaySteps - 1) * 100) + '%';
+
+            // Reset auto-advance timer on manual click
+            if (dayInterval) { clearInterval(dayInterval); startDayAutoplay(); }
+        }
+
+        function startDayAutoplay() {
+            dayInterval = setInterval(() => {
+                currentDayStep = (currentDayStep + 1) % totalDaySteps;
+                setDayStep(currentDayStep);
+            }, 4000);
+        }
+
+        // Start autoplay when timeline comes into view
+        const dayTimeline = document.getElementById('day-timeline');
+        if (dayTimeline) {
+            const dayObs = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) {
+                        startDayAutoplay();
+                        dayObs.unobserve(e.target);
+                    }
+                });
+            }, { threshold: 0.3 });
+            dayObs.observe(dayTimeline);
         }
     </script>
 
