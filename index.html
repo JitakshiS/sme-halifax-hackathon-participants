@@ -444,47 +444,42 @@
             font-weight: 300;
         }
 
-        /* ---- Persona Cards ---- */
-        .personas-grid {
+        /* ---- Showcase Grid ---- */
+        .showcase-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            margin-top: 4rem;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1rem;
+            margin-top: 2.5rem;
         }
-        @media (max-width: 900px) { .personas-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 500px) { .personas-grid { grid-template-columns: 1fr; } }
-        .persona-card {
-            padding: 2rem;
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            text-align: center;
+        @media (max-width: 900px) { .showcase-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 600px) { .showcase-grid { grid-template-columns: repeat(2, 1fr); } }
+        .showcase-card {
+            padding: 1.5rem;
+            background: var(--white);
+            border: 1px solid var(--border-light);
+            border-radius: 14px;
+            transition: all 0.3s ease;
         }
-        .persona-emoji {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+        .showcase-card:hover {
+            border-color: rgba(249, 115, 22, 0.35);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(249, 115, 22, 0.06);
         }
-        .persona-card h4 {
-            font-size: 1rem;
+        .showcase-emoji {
+            font-size: 1.75rem;
+            margin-bottom: 0.75rem;
+        }
+        .showcase-title {
+            font-size: 0.9375rem;
             font-weight: 600;
-            margin-bottom: 0.5rem;
+            color: var(--black);
+            margin-bottom: 0.35rem;
         }
-        .persona-card p {
-            font-size: 0.875rem;
-            color: var(--gray-400);
+        .showcase-desc {
+            font-size: 0.8125rem;
+            color: var(--gray-500);
+            font-weight: 300;
             line-height: 1.5;
-            font-weight: 300;
-        }
-        .persona-closing {
-            margin-top: 3rem;
-            font-size: 1.25rem;
-            color: var(--gray-300);
-            font-weight: 300;
-            max-width: 640px;
-        }
-        .persona-closing em {
-            color: var(--accent);
-            font-style: italic;
         }
 
         /* ---- Benefits Grid ---- */
@@ -1286,73 +1281,65 @@
 
             <div class="reveal" style="margin-top: 3rem; max-width: 640px;">
                 <h3 style="font-size: 1.75rem; font-weight: 700; line-height: 1.3; letter-spacing: -0.02em; color: var(--black);">You know AI could help your business.<br>You just don't know where to start.</h3>
-                <p style="margin-top: 0.75rem; font-size: 1.0625rem; color: var(--gray-500); font-weight: 300; line-height: 1.6;">That's exactly why this event exists. Here's who shows up:</p>
+                <p style="margin-top: 0.75rem; font-size: 1.0625rem; color: var(--gray-500); font-weight: 300; line-height: 1.6;">Here's what people are building at this event:</p>
             </div>
 
-            <div class="personas-grid reveal-stagger" style="margin-top: 2rem;">
-                <div class="persona-card" style="background: var(--accent-soft); border: 1px solid rgba(249, 115, 22, 0.1);">
-                    <div class="persona-emoji">&#127869;</div>
-                    <h4 style="color: var(--black);">The Restaurant Owner</h4>
-                    <p style="color: var(--gray-500);">Who spends Sunday nights manually confirming Monday's bookings and replying to the same questions on Instagram. You know there's a better way &mdash; you just haven't had time to figure it out.</p>
+            <div class="showcase-grid reveal-stagger">
+                <div class="showcase-card">
+                    <div class="showcase-emoji">&#128722;</div>
+                    <p class="showcase-title">Shopify Store with AI</p>
+                    <p class="showcase-desc">Launch a full online store using Lovable + Shopify integration</p>
                 </div>
-                <div class="persona-card" style="background: var(--accent-soft); border: 1px solid rgba(249, 115, 22, 0.1);">
-                    <div class="persona-emoji">&#128736;</div>
-                    <h4 style="color: var(--black);">The Contractor</h4>
-                    <p style="color: var(--gray-500);">Who's great at the work but loses hours every week chasing invoices, re-typing the same quote template, and wondering which jobs are actually profitable.</p>
+                <div class="showcase-card">
+                    <div class="showcase-emoji">&#128176;</div>
+                    <p class="showcase-title">Automated Invoicing</p>
+                    <p class="showcase-desc">Bills go out and get paid automatically &mdash; no more chasing</p>
                 </div>
-                <div class="persona-card" style="background: var(--accent-soft); border: 1px solid rgba(249, 115, 22, 0.1);">
-                    <div class="persona-emoji">&#128717;</div>
-                    <h4 style="color: var(--black);">The Retailer</h4>
-                    <p style="color: var(--gray-500);">Who knows their online store isn't converting but can't tell if it's the photos, the copy, or the checkout flow &mdash; and every agency quote feels like a gamble.</p>
+                <div class="showcase-card">
+                    <div class="showcase-emoji">&#129302;</div>
+                    <p class="showcase-title">AI Customer Support Bot</p>
+                    <p class="showcase-desc">Answer the same 10 questions without lifting a finger</p>
                 </div>
-                <div class="persona-card" style="background: var(--accent-soft); border: 1px solid rgba(249, 115, 22, 0.1);">
-                    <div class="persona-emoji">&#128202;</div>
-                    <h4 style="color: var(--black);">The Agency Owner</h4>
-                    <p style="color: var(--gray-500);">Who's tracking projects across Slack, email, spreadsheets, and their memory &mdash; and knows one missed deadline could cost a client.</p>
+                <div class="showcase-card">
+                    <div class="showcase-emoji">&#128197;</div>
+                    <p class="showcase-title">Smart Booking Portal</p>
+                    <p class="showcase-desc">Clients book, confirm, and reschedule themselves</p>
+                </div>
+                <div class="showcase-card">
+                    <div class="showcase-emoji">&#127908;</div>
+                    <p class="showcase-title">Sales Call Optimizer</p>
+                    <p class="showcase-desc">Record, transcribe, and extract action items from every call</p>
+                </div>
+                <div class="showcase-card">
+                    <div class="showcase-emoji">&#127942;</div>
+                    <p class="showcase-title">Client Onboarding Flow</p>
+                    <p class="showcase-desc">Gamify your onboarding so new clients actually complete it</p>
+                </div>
+                <div class="showcase-card">
+                    <div class="showcase-emoji">&#128200;</div>
+                    <p class="showcase-title">Team Project Dashboard</p>
+                    <p class="showcase-desc">See every project, deadline, and bottleneck in one view</p>
+                </div>
+                <div class="showcase-card">
+                    <div class="showcase-emoji">&#9997;&#65039;</div>
+                    <p class="showcase-title">AI Content Engine</p>
+                    <p class="showcase-desc">Generate social posts, emails, and proposals in your brand voice</p>
+                </div>
+                <div class="showcase-card">
+                    <div class="showcase-emoji">&#128293;</div>
+                    <p class="showcase-title">Lead Scoring System</p>
+                    <p class="showcase-desc">Know which leads are hot before you pick up the phone</p>
+                </div>
+                <div class="showcase-card">
+                    <div class="showcase-emoji">&#128218;</div>
+                    <p class="showcase-title">Internal Knowledge Base</p>
+                    <p class="showcase-desc">New hires get answers instantly instead of asking 5 people</p>
                 </div>
             </div>
+
+            <p class="reveal" style="margin-top: 2rem; font-size: 0.9375rem; color: var(--gray-500); text-align: center; line-height: 1.6;">Built with <strong style="color: var(--black);">Lovable</strong>, <strong style="color: var(--black);">Claude Code</strong>, <strong style="color: var(--black);">v0</strong>, and more &mdash; <span style="color: var(--accent); font-weight: 500;">$200+ in free tool credits</span> included with every ticket.</p>
 
             <p class="reveal" style="margin-top: 2rem; font-size: 1.125rem; color: var(--gray-500); font-weight: 300;">If you've ever thought "there has to be a better way" &mdash; this is your chance to build it, in a room full of people who get it. <em style="color: var(--accent); font-style: italic;">No judgement. No jargon. Just progress.</em></p>
-
-            <p class="section-label mono reveal" style="margin-top: 3rem;">What you could build &darr;</p>
-
-            <div class="tracks-grid reveal-stagger">
-                <div class="track-card">
-                    <div class="track-card-icon">
-                        <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182"/></svg>
-                    </div>
-                    <h4>Automate What's Eating Your Time</h4>
-                    <p>Invoicing, scheduling, follow-ups, data entry &mdash; build AI workflows that handle the repetitive stuff.</p>
-                </div>
-                <div class="track-card">
-                    <div class="track-card-icon">
-                        <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"/></svg>
-                    </div>
-                    <h4>Build Your Customer Experience</h4>
-                    <p>Booking portals, AI chatbots, loyalty apps, personalized storefronts &mdash; tools your customers will love.</p>
-                </div>
-                <div class="track-card">
-                    <div class="track-card-icon">
-                        <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z"/></svg>
-                    </div>
-                    <h4>See Your Business Clearly</h4>
-                    <p>Dashboards, sales tracking, inventory, financial overview &mdash; see everything in one place.</p>
-                </div>
-                <div class="track-card">
-                    <div class="track-card-icon">
-                        <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6"/></svg>
-                    </div>
-                    <h4>Sell Smarter</h4>
-                    <p>AI landing pages, lead scoring, proposal generators, content engines &mdash; grow faster.</p>
-                </div>
-                <div class="track-card">
-                    <div class="track-card-icon">
-                        <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456Z"/></svg>
-                    </div>
-                    <h4>The Wildcard</h4>
-                    <p>Something in your business is held together with duct tape. Fix it. Build anything you want.</p>
-                </div>
-            </div>
 
             <div class="process-strip reveal">
                 <div class="process-step">
